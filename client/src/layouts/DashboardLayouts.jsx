@@ -1,3 +1,4 @@
+
 import { useContext, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import AuthContext from "../context/AuthContext";
@@ -30,7 +31,7 @@ export default function DashboardLayouts() {
             {/* Mobile sidebar overlay */}
             <div className={`fixed inset-0 z-40 bg-black/30 transition-opacity md:hidden ${sidebarOpen ? 'block' : 'hidden'}`} onClick={() => setSidebarOpen(false)} />
             {/* Sidebar */}
-            <aside className={`fixed z-50 top-0 left-0 h-screen md:h-screen w-64 bg-white border-r border-gray-200 shadow-xl flex flex-col items-center p-6 transition-transform duration-300 md:static md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:w-64 md:flex md:p-6`}> 
+            <aside className={`fixed z-50 top-0 left-0 h-screen md:h-screen w-64 bg-white border-r border-gray-200 shadow-xl flex flex-col items-center p-6 transition-transform duration-300 md:fixed md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:w-64 md:flex md:p-6 overflow-y-auto pb-6`}> 
                 <span className="text-2xl font-bold text-blue-700 mb-8 tracking-tight">My Dashboard</span>
                 <nav className="flex flex-col gap-2 w-full">
                     {PATHS.map((value, index) => (
@@ -56,7 +57,7 @@ export default function DashboardLayouts() {
                         }, 0);
                         logout();
                     }}
-                    className="mt-auto w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-medium shadow-md transition duration-300 hover:scale-[1.03] flex items-center justify-center gap-2"
+                    className="mt-auto sticky bottom-6 w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-medium shadow-md transition duration-300 hover:scale-[1.03] flex items-center justify-center gap-2"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" />
